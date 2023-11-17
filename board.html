@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Board - Join</title>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/favicon-package/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-package/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/icons/favicon-package/favicon-16x16.png" />
+  <link rel="manifest" href="./assets/icons/favicon-package/site.webmanifest" />
+  <link rel="mask-icon" href="./assets/icons/favicon-package/safari-pinned-tab.svg" color="#29abe2" />
+  <meta name="msapplication-TileColor" content="#29abe2" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./style/fonts.css" />
+  <link rel="stylesheet" href="./style/style.css" />
+  <link rel="stylesheet" href="./style/navigation.css" />
+  <link rel="stylesheet" href="./style/notification.css" />
+  <link rel="stylesheet" href="./style/board.css" />
+  <link rel="stylesheet" href="./style/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./style/contacts.css">
+  <link rel="stylesheet" href="./style/add-task.css" />
+
+  <!-- Scripts -->
+  <script src="./script/data.js"></script>
+  <script src="./script/script.js"></script>
+  <script src="./script/contacts.js"></script>
+  <script src="./script/add-task-logic.js"></script>
+  <script src="./script/add-task.js"></script>
+  <script src="./script/board-render.js"></script>
+  <script src="./script/board-logic.js"></script>
+  <script src="./script/swiper-bundle.min.js"></script>
+  <script src="./script/templates.js"></script>
+  <script src="./script/navigation.js"></script>
+  <script>
+    checkCookieValueInContacts("./login.html");
+</script>
+
+</head>
+
+<body onload="renderPage()">
+  <header class="mobile-header" data-include-html="./assets/templates/header-template.html"></header>
+  <aside class="mobile-nav" data-include-html="./assets/templates/nav-template.html"></aside>
+
+  <main class="main-container">
+    <div class="side-spacing">
+      <div class="board-header">
+        <div class="title-bar">
+          <span>Board</span>
+          <div class="title-search-add desktop-visible">
+            <div class="search-bar">
+              <div class="search-line">
+                <input id="search-desktop" class=" " onkeydown="filterTasks('search-desktop')" type="search"
+                  placeholder="Find Task" />
+                <div class="seperator"></div>
+                <img src="./assets/icons/search.svg" alt="search" />
+              </div>
+            </div>
+            <a href="./add-task.html?sectionId=0" class="add-task c-pointer">
+              <span class="display-none">Add task</span>
+              <img src="./assets/icons/add.svg" alt="" />
+            </a>
+          </div>
+          <a href="./add-task.html?sectionId=0" class="plus-sign mobile-visible">
+            <img src="./assets/icons/capa 1.svg" alt="" />
+          </a>
+        </div>
+        <div class="search-bar mobile-visible">
+          <div class="search-line">
+            <input id="search-mobile" type="search" onkeydown="filterTasks('search-mobile')" placeholder="Find Task" />
+            <div class="seperator"></div>
+            <img src="./assets/icons/search.svg" alt="search" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sec-bar-container">
+      <div class="sec-bar">
+        <span>To do</span>
+        <a id="add-task-button0" onclick='showAddTask(0)' class="add-task-button c-pointer">
+          <svg class="svg-plus" width="18" height="18" viewBox="0 0 18 18" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="Capa 1">
+              <g id="Group 11">
+                <path id="Vector 13" class="svg-plus" d="M9 1.5V16.5" stroke="#2A3647" stroke-width="2"
+                  stroke-linecap="round" />
+                <path id="Vector 14" class="svg-plus" d="M16.5 9.1416L1.5 9.1416" stroke="#2A3647" stroke-width="2"
+                  stroke-linecap="round" />
+              </g>
+            </g>
+          </svg>
+        </a>
+      </div>
+      <div class="sec-bar">
+        <span>In progress</span>
+        <a id="add-task-button1" onclick='showAddTask(1)' class="add-task-button c-pointer">
+          <svg class="svg-plus" width="18" height="18" viewBox="0 0 18 18" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="Capa 1">
+              <g id="Group 11">
+                <path id="Vector 13" class="svg-plus" d="M9 1.5V16.5" stroke="#2A3647" stroke-width="2"
+                  stroke-linecap="round" />
+                <path id="Vector 14" class="svg-plus" d="M16.5 9.1416L1.5 9.1416" stroke="#2A3647" stroke-width="2"
+                  stroke-linecap="round" />
+              </g>
+            </g>
+          </svg>
+        </a>
+      </div>
+      <div class="sec-bar">
+        <span>Await feedback</span>
+        <a id="add-task-button2" onclick='showAddTask(2)' class="add-task-button c-pointer">
+          <svg class="svg-plus" width="18" height="18" viewBox="0 0 18 18" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="Capa 1">
+              <g id="Group 11">
+                <path id="Vector 13" class="svg-plus" d="M9 1.5V16.5" stroke="#2A3647" stroke-width="2"
+                  stroke-linecap="round" />
+                <path id="Vector 14" class="svg-plus" d="M16.5 9.1416L1.5 9.1416" stroke="#2A3647" stroke-width="2"
+                  stroke-linecap="round" />
+              </g>
+            </g>
+          </svg>
+        </a>
+      </div>
+      <div class="sec-bar">
+        <span>Done</span>
+        <a id="add-task-button3" onclick='showAddTask(3)' class="add-task-button c-pointer">
+          <svg class="svg-plus" width="18" height="18" viewBox="0 0 18 18" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="Capa 1">
+              <g id="Group 11">
+                <path id="Vector 13" class="svg-plus" d="M9 1.5V16.5" stroke="#2A3647" stroke-width="2"
+                  stroke-linecap="round" />
+                <path id="Vector 14" class="svg-plus" d="M16.5 9.1416L1.5 9.1416" stroke="#2A3647" stroke-width="2"
+                  stroke-linecap="round" />
+              </g>
+            </g>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div id="sections" class="sections"></div>
+    </div>
+    <div class="modal-bg d-none" id="modal-bg"></div>
+    <div class="contact_edit_main_container" id="contact-add">
+      <div class="contact_edit_container">
+        <img class="contact_edit_close d_close" src="./assets/icons/close.svg"
+          onclick="toggleClass('contact-add', 'show'), cancelAdd('Add')" />
+        <img class="contact_edit_close m_close" src="./assets/icons/close-withe.svg"
+          onclick="toggleClass('contact-add', 'show'), cancelAdd('Add')" />
+        <div class="contact_edit_title">
+          <div class="contacts_logo">
+            <img src="./assets/icons/logo-light.svg" />
+          </div>
+          <div class="contacts_edit_h1"><b>Add contact</b></div>
+          <div class="contacts_add_description">
+            Task er better with a team!
+          </div>
+          <div class="parting_line_blue ml-24"></div>
+        </div>
+        <div class="contact_add_icon">
+          <img src="./assets/icons/person.svg" class="contact_add_img" />
+        </div>
+        <div class="contact_edit_input">
+          <form class="contact_input_container"
+            onsubmit="saveContact(); toggleClass('contact-add', 'show'); confirmContact('confirm-save'); renderContacts(); return false;">
+            <div>
+              <div class="contact_inputfield">
+                <input type="name" class="contact_input" id="nameAddInput" placeholder="Name" required />
+                <img src="./assets/icons/person.svg" class="contact_input_img" />
+              </div>
+              <div class="contact_inputfield">
+                <input type="email" class="contact_input" id="emailAddInput" placeholder="Email" required />
+                <img src="./assets/icons/mail.svg" class="contact_input_img" />
+              </div>
+              <div class="contact_inputfield">
+                <input type="number" class="contact_input" id="phoneAddInput" placeholder="Phone" />
+                <img src="./assets/icons/call.svg" class="contact_input_img" />
+              </div>
+            </div>
+            <div class="btn_container">
+              <button class="btn_save flex-box-centered">
+                <nobr><b>Create Contact</b></nobr><img src="./assets/icons/checkmark.svg" />
+              </button>
+              <button class="btn_delete" onclick="toggleClass('contact-add', 'show'), cancelAdd('Add')">
+                Cancel<img class="btn_img" src="./assets/icons/close.svg" /><img class="btn_none"
+                  src="./assets/icons/cancel-blue.svg" />
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="confirm_container font_normal flex-box-centered" id="confirm-save">
+        Contact succesfully created
+      </div>
+      <div class="confirm_container font_normal flex-box-centered" id="confirm-task">
+        Task added to board
+      </div>
+    </div>
+
+  </main>
+</body>
+
+</html>

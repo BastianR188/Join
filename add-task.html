@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Task - Join</title>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/favicon-package/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-package/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/icons/favicon-package/favicon-16x16.png" />
+  <link rel="manifest" href="./assets/icons/favicon-package/site.webmanifest" />
+  <link rel="mask-icon" href="./assets/icons/favicon-package/safari-pinned-tab.svg" color="#29abe2" />
+  <meta name="msapplication-TileColor" content="#29abe2" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./style/contacts.css">
+  <link rel="stylesheet" href="./style/fonts.css" />
+  <link rel="stylesheet" href="./style/style.css" />
+  <link rel="stylesheet" href="./style/navigation.css" />
+  <link rel="stylesheet" href="./style/notification.css" />
+  <link rel="stylesheet" href="./style/add-task.css" />
+
+  <!-- Scripts -->
+  <script src="./script/data.js"></script>
+  <script src="./script/script.js"></script>
+  <script src="./script/contacts.js"></script>
+  <script src="./script/add-task-logic.js"></script>
+  <script src="./script/add-task.js"></script>
+  <script src="./script/templates.js"></script>
+  <script src="./script/navigation.js"></script>
+  <script>
+    checkCookieValueInContacts("./login.html");
+</script>
+
+</head>
+
+<body onload="renderAddTaskPage()">
+  <header data-include-html="./assets/templates/header-template.html"></header>
+  <aside data-include-html="./assets/templates/nav-template.html"></aside>
+  <div class="d-none" data-include-html="./assets/templates/notification.html"></div>
+
+  <main class="main-container add-task-height">
+    <div class="side-spacing">
+      <h2 class="headline">Add Task</h2>
+
+      <div data-include-html="./assets/templates/task-form.html"></div>
+    </div>
+    <div class="contact_edit_main_container" id="contact-add">
+      <div class="contact_edit_container">
+        <img class="contact_edit_close d_close" src="./assets/icons/close.svg"
+          onclick="toggleClass('contact-add', 'show'), cancelAdd('Add')" />
+        <img class="contact_edit_close m_close" src="./assets/icons/close-withe.svg"
+          onclick="toggleClass('contact-add', 'show'), cancelAdd('Add')" />
+        <div class="contact_edit_title">
+          <div class="contacts_logo">
+            <img src="./assets/icons/logo-light.svg" />
+          </div>
+          <div class="contacts_edit_h1"><b>Add contact</b></div>
+          <div class="contacts_add_description">
+            Task er better with a team!
+          </div>
+          <div class="parting_line_blue ml-24"></div>
+        </div>
+        <div class="contact_add_icon">
+          <img src="./assets/icons/person.svg" class="contact_add_img" />
+        </div>
+        <div class="contact_edit_input">
+          <form class="contact_input_container"
+            onsubmit="saveContact(); toggleClass('contact-add', 'show'); confirmContact('confirm-save'); renderContacts(); return false;">
+            <div>
+              <div class="contact_inputfield">
+                <input type="name" class="contact_input" id="nameAddInput" placeholder="Name" required />
+                <img src="./assets/icons/person.svg" class="contact_input_img" />
+              </div>
+              <div class="contact_inputfield">
+                <input type="email" class="contact_input" id="emailAddInput" placeholder="Email" required />
+                <img src="./assets/icons/mail.svg" class="contact_input_img" />
+              </div>
+              <div class="contact_inputfield">
+                <input type="number" class="contact_input" id="phoneAddInput" placeholder="Phone" />
+                <img src="./assets/icons/call.svg" class="contact_input_img" />
+              </div>
+            </div>
+            <div class="btn_container">
+              <button class="btn_save flex-box-centered">
+                <nobr><b>Create Contact</b></nobr><img src="./assets/icons/checkmark.svg" />
+              </button>
+              <button class="btn_delete" onclick="toggleClass('contact-add', 'show'), cancelAdd('Add')">
+                Cancel<img class="btn_img" src="./assets/icons/close.svg" /><img class="btn_none"
+                  src="./assets/icons/cancel-blue.svg" />
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="confirm_container font_normal flex-box-centered" id="confirm-save">
+        Contact succesfully created
+      </div>
+      <div class="confirm_container font_normal flex-box-centered" id="confirm-task">
+        Task added to board
+      </div>
+    </div>
+
+  </main>
+</body>
+
+</html>
