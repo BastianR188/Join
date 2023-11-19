@@ -1,7 +1,9 @@
 # Join
 
 To open the program and start the index.html file,
+
        - navigate to the location where your index.html file is located.
+       
        - Right click on the index.html file.
        
        - Select "Open with" and then the web browser of your choice, e.g. Google Chrome.
@@ -12,8 +14,11 @@ To open the program and start the index.html file,
 # Join
 
 Um das Programm zu öffnen und die index.html-Datei zu starten, 
+
       - navigieren Sie zu dem Speicherort, an dem sich Ihre index.html-Datei befindet.
+      
       -  Klicken Sie mit der rechten Maustaste auf die index.html-Datei.
+      
       -  Wählen Sie "Öffnen mit" und dann den Webbrowser Ihrer Wahl, z.B. Google Chrome.
 
 
