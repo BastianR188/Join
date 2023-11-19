@@ -3,6 +3,7 @@
 To open the program and start the index.html file,
        - navigate to the location where your index.html file is located.
        - Right click on the index.html file.
+       
        - Select "Open with" and then the web browser of your choice, e.g. Google Chrome.
 
 "My Kanban board is an effective tool for visualizing and managing my tasks. It consists of several columns that represent the progress of my tasks, from planning to completion. Each task is represented as a card and contains relevant details such as description, responsible persons and due date. By using this board, I can optimize workflow and identify bottlenecks to increase my productivity."
