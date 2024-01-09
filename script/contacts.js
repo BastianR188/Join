@@ -31,6 +31,15 @@ document.addEventListener('keydown', function (event) {
   }
 });
 
+document.addEventListener('click', function (event) {
+  if (event.target.id === 'contact-add') {
+    toggleClass('contact-add', 'show'), cancelAdd('Add')
+  }
+  if (event.target.id === 'contact-edit') {
+    toggleClass('contact-edit', 'show'), cancelAdd('Add')
+  }
+});
+
 /**
  * renders gets the contacts
  * @returns {any}
