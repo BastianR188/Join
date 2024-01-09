@@ -107,6 +107,28 @@ async function showAddTask(sectionIndex) {
   }
 }
 
+document.addEventListener('click', function (event) {
+  if (event.target.id === 'modal-bg') {
+    closeModalBox();
+  }
+});
+
+document.addEventListener('keydown', function (event) {
+  if (event.key === "Escape") {
+    let contact = document.getElementById('contacts');
+    let category = document.getElementById('categories');
+    if (contact && category) {
+      if (contact.classList.contains('dnone') && category.classList.contains('d-none')) {
+        closeModalBox();
+      }
+    } else {
+      closeModalBox();
+    }
+
+  }
+});
+
+
 /**
  * Gets the Index of the category for finding the belonging color for design elements.
  * @param {number} taskId - Id number of the task
@@ -187,9 +209,9 @@ function setStyleProperties(taskId) {
  */
 function removeRequired() {
   const elements = document.querySelectorAll('.red');
-elements.forEach(element => {
-  element.remove();
-});
+  elements.forEach(element => {
+    element.remove();
+  });
 }
 
 /**
@@ -354,7 +376,7 @@ async function changeStatus(taskId, subtaskIndex) {
   if (subtaskStatus == 1) {
     tasks[taskIndex]["subtasks"][subtaskIndex]["status"] = 0;
   }
-  
+
   renderTaskDetailsSubtasks(taskId);
   await storeData("tasks", tasks);
 }

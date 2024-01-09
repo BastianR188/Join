@@ -20,7 +20,7 @@
                 <!--Auswahl Assignee-->
                 <div class="dflex-column">
                     <label class="pad-bot8px" for="assignee-field">Assigned to</label>
-                    <div class="input-field background-white assignee-field">
+                    <div id="contactInputField" class="input-field background-white assignee-field">
                         <label id="assignee" class="input-assignee" onclick="renderContacts()">Select contacts to
                             assign</label>
                         <button type="button" class="drop-down-button" onclick="renderContacts()">
@@ -81,7 +81,7 @@
                 <!--Auswahl der Kategorie des Tasks-->
                 <div class="dflex-column" required>
                     <label class="pad-bot8px">Category<span class="red">*</span></label>
-                    <div class="input-field background-white assignee-field position">
+                    <div id="categoriesInputField" class="input-field background-white assignee-field position">
                         <input type="text" id="category-required" class="prio-required" required>
                         <label id="category" class="input-assignee" onclick="dropDownCategory()">Select task
                             category</label>

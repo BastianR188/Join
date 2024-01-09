@@ -15,6 +15,22 @@ async function init() {
   render();
 }
 
+document.addEventListener('keydown', function (event) {
+  if (event.key === "Escape") {
+    let contactAdd = document.getElementById('contact-add');
+    let contactInputField = document.getElementById('contactInputField');
+    if (!contactInputField) {
+      if (contactAdd && contactAdd.classList.contains('show')) {
+        toggleClass('contact-add', 'show'), cancelAdd('Add')
+      }
+    }
+    let contactEdit = document.getElementById('contact-edit');
+    if (contactEdit && contactEdit.classList.contains('show')) {
+      toggleClass('contact-edit', 'show'), cancelAdd('Add')
+    }
+  }
+});
+
 /**
  * renders gets the contacts
  * @returns {any}
